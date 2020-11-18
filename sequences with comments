@@ -1,0 +1,58 @@
+h算子： h1为加法，h2为乘法，h3为乘方，h4为 ↑↑，h5为↑↑↑，……
+（写为h算子是为了写起来比高德纳箭头 方便）
+
+h算子的inspiration：a op2 N = S op1 (N)    S means Sequence 
+如 S+ :  a  a+a  a+(a+a)  …
+   S*:  a  a*a  a*(a*a)  …
+   S^:  a  a^a  a^(a^a)  …
+Sop :  a  a op a  a op (a op a)  …  a op pre … 
+
+Cl数列（sequence）：  
+Cl1:  1 1 1 1 1 1 ……
+Cl2:  1 2 3 4 5 6 ……
+Cl3:  1 4 27 ……
+Cl4:  1 256 ……
+
+递推式：  CL_{k+1}(n) = Cl_{k}(n)  h_{n+1}  n     where, h_{n+1} is a  h 系列算子
+
+
+P sequence :  P(n) = n h_{n} n
+如此，则可衍生出 P^{2}(n)  P^{3}(n)  P^{n}(n)  … 
+
+Experience/经验:  改算子 对 数列 增长速度的影响  明显高于 改操作数 对 数列增长速度的影响; 
+为了让数列尽可能快地增长，重点是在算子上下功夫;
+如果算子本身成为新的操作数，则可以对将改算子的算子作为新的操作数，使之尽可能快地增长  
+可以定义算子的大小比较（按增长速度比较）
+总之，要义在于   Abstraction over Abstraction    以上一层的abstraction为base建立新的abstraction
+
+examples
+1 二元算子（函数）
+定义d系列算子为:  a h_{P(n)} b = a d_n b
+定义e系列算子为:  a d_{n d_n n} b = a e_n b
+定义f系列算子为:   a e_{n e_n n} b = a f_n b
+
+
+2 一元算子（函数）
+定义q sequence :   q(n) = P^{P(n)} (n)
+
+对于任意 函数 f(n), 定义 g(n) = f^{n}(n)
+于是，可以定义 
+h(n) = g^{n}(n) 
+i(n) = h^{n}(n)
+j(n) = i^{n}(n)
+k(n) = j^{n}(n)
+…
+
+自然地，由上述过程引申，可以定义  T(f) = g  ，其中f 和 g 均为函数（算子）。
+于是，k就可以表示为 T^{5}(f) , 而不必连续写那好几个定义式。
+
+
+接下来的事就很显然了
+就是继续以T为操作数，构造新的以T为变量的函数
+这大概就属于 Functional Analysis 的内容了 ：
+https://www.amazon.com/Functional-Analysis-Introduction-Princeton-Lectures/dp/0691113874/
+https://www.amazon.com/Course-Functional-Analysis-Graduate-Mathematics/dp/0387972455
+
+或者，以上述过程中的 某个抽象 为变量，构造新的 抽象。
+
+Above is just a little playing，大概是 https://en.wikipedia.org/wiki/Fast-growing_hierarchy 中提到的方法的一个子集
